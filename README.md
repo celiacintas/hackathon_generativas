@@ -35,3 +35,14 @@ Cuando pensamos en llevar a producción modelos de aprendizaje profundo, necesit
 - Cintas, C., Speakman, S., Akinwande, V., Ogallo, W., Weldemariam, K., Sridharan, S. and McFowland, E., 2021. Detecting adversarial attacks via subset scanning of autoencoder activations and reconstruction error. In Proceedings of the Twenty-Ninth International Conference on International Joint Conferences on Artificial Intelligence (pp. 876-882).
 - Navarro, P., Orlando, J.I., Delrieux, C. and Iarussi, E., 2021, February. SketchZooms: Deep Multiview Descriptors for Matching Line Drawings. In Computer Graphics Forum (Vol. 40, No. 1, pp. 410-423).
 
+
+### Setup
+`$ python -m venv genvenv`
+
+`$ source genvenv/bin/activate`
+
+`$ pip install -r requirements.txt`
+
+`$ ipython kernel install --user --name=genvenv`
+
+`$ python -m notebook`
