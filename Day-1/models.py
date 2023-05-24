@@ -2,14 +2,15 @@ from torch import nn
 
 
 class _C(nn.Module):
-    """ Classifier class"""
+    """Classifier class"""
+
     def __init__(self, input_h_w=28):
-        super(_C, self).__init__()     
+        super(_C, self).__init__()
         self.input_height = input_h_w
         self.input_width = input_h_w
         self.input_dim = 1
         self.output_dim = 11
-        
+
         self.conv = nn.Sequential(
             nn.Conv2d(self.input_dim, 64, 4, 2, 1),
             nn.ReLU(),

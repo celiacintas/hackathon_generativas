@@ -3,12 +3,39 @@ from torch._utils import _accumulate
 from torch import randperm, utils
 from torchvision import datasets, transforms
 import numpy as np
-
+from sklearn import metrics
 
 ## Auxiliary functions for the ipynb
 
+
 def create_plot_window(vis, xlabel, ylabel, title):
-    return vis.line(X=np.array([1]), Y=np.array([np.nan]), opts=dict(xlabel=xlabel, ylabel=ylabel, title=title))
+    return vis.line(
+        X=np.array([1]),
+        Y=np.array([np.nan]),
+        opts=dict(xlabel=xlabel, ylabel=ylabel, title=title),
+    )
+
+
+def iterations_test(C, test_loader):
+    y_real = list()
+    y_pred = list()
+
+    for ii, data_ in enumerate(test_loader):
+        input_, label = data_
+        val_input = Variable(input_).cuda()
+        val_label = Variable(label.type(torch.LongTensor)).cuda()
+        score = C(val_input)
+        _, y_pred_batch = torch.max(score, 1)
+        y_pred_batch = y_pred_batch.cpu().squeeze().numpy()
+        y_real_batch = val_label.cpu().data.squeeze().numpy()
+        y_real.append(y_real_batch.tolist())
+        y_pred.append(y_pred_batch.tolist())
+
+    y_real = [item for batch in y_real for item in batch]
+    y_pred = [item for batch in y_pred for item in batch]
+
+    return y_real, y_pred
+
 
 def show_samples(images, groundtruth):
     """
@@ -49,6 +76,7 @@ class Subset(utils.data.Dataset):
         dataset (Dataset): The whole Dataset
         indices (sequence): Indices in the whole set selected for subset
     """
+
     def __init__(self, dataset, indices):
         self.dataset = dataset
         self.indices = indices
@@ -69,7 +97,12 @@ def random_split(dataset, lengths):
         lengths (sequence): lengths of splits to be produced
     """
     if sum(lengths) != len(dataset):
-        raise ValueError("Sum of input lengths does not equal the length of the input dataset!")
+        raise ValueError(
+            "Sum of input lengths does not equal the length of the input dataset!"
+        )
 
     indices = randperm(sum(lengths))
-    return [Subset(dataset, indices[offset - length:offset]) for offset, length in zip(_accumulate(lengths), lengths)]
+    return [
+        Subset(dataset, indices[offset - length : offset])
+        for offset, length in zip(_accumulate(lengths), lengths)
+    ]
