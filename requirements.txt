@@ -27,6 +27,7 @@ fonttools==4.39.4
 fqdn==1.5.1
 idna==3.4
 ignite==1.1.0
+imageio==2.29.0
 importlib-metadata==6.6.0
 importlib-resources==5.12.0
 ipykernel==6.23.1
@@ -63,6 +64,7 @@ notebook==6.5.4
 notebook_shim==0.2.3
 numpy==1.24.3
 packaging==23.1
+pandas==2.0.1
 pandocfilters==1.5.0
 parso==0.8.3
 pathspec==0.11.1
@@ -82,6 +84,7 @@ pyrsistent==0.19.3
 python-dateutil==2.8.2
 python-json-logger==2.0.7
 pytorch-ignite==0.4.12
+pytz==2023.3
 PyYAML==6.0
 pyzmq==25.0.2
 requests==2.31.0
@@ -108,6 +111,7 @@ torchvision==0.15.2
 tornado==6.3.2
 traitlets==5.9.0
 typing_extensions==4.6.0
+tzdata==2023.3
 uri-template==1.2.0
 urllib3==2.0.2
 visdom==0.2.4
