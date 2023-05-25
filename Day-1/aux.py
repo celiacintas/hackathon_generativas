@@ -4,6 +4,9 @@ from torch import randperm, utils
 from torchvision import datasets, transforms
 import numpy as np
 from sklearn import metrics
+from torch.autograd import Variable
+import torch
+
 
 ## Auxiliary functions for visualization
 
