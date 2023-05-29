@@ -27,7 +27,7 @@ def generate_animation(path, num):
     for e in range(num):
         img_name = path + '_epoch%03d' % (e+1) + '.png'
         images.append(imageio.imread(img_name))
-    imageio.mimsave(path + '_generate_animation.gif', images, fps=5)
+    imageio.mimsave(path + '_generate_animation.gif', images, duration=5)
 
 def loss_plot(hist, path = 'Train_hist.png', model_name = ''):
     x = range(len(hist['D_loss']))
@@ -83,9 +83,9 @@ class GAN(object):
         self.epoch = epochs
         self.sample_num = sample
         self.batch_size = batch
-        self.save_dir = '/tmp/'
-        self.result_dir = '/tmp/'
-        self.log_dir = '/tmp/'
+        self.save_dir = './weights/'
+        self.result_dir = './output/'
+        self.log_dir = './output/'
         self.gpu_mode = gpu_mode
         self.dataset = 'vasijas'
         self.model_name = 'GAN'
