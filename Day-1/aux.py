@@ -53,14 +53,14 @@ def show_samples(images, groundtruth):
 ## Auxiliary functions for torch training
 
 
-def iterations_test(C, test_loader):
+def iterations_test(C, test_loader, device='cpu'):
     y_real = list()
     y_pred = list()
 
     for ii, data_ in enumerate(test_loader):
         input_, label = data_
-        val_input = Variable(input_)  # .cuda()
-        val_label = Variable(label.type(torch.LongTensor))  # .cuda()
+        val_input = Variable(input_).to(device)  # .cuda()
+        val_label = Variable(label.type(torch.LongTensor)).to(device)  # .cuda()
         score = C(val_input)
         _, y_pred_batch = torch.max(score, 1)
         y_pred_batch = y_pred_batch.cpu().squeeze().numpy()
