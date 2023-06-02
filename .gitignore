@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+Day-2/output/*.png
+
 # C extensions
 *.so
 
