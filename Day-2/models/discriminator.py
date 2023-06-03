@@ -29,10 +29,11 @@ class _D(nn.Module):
 
     def forward(self, input_):
         x = self.conv(input_)
+        #x = x.view(-1, 128 * (self.input_height // 4) * (self.input_width // 4))
         x = x.view(-1, 128 * (self.input_height // 4) * (self.input_width // 4))
         x = self.fc(x)
 
-        return x
+        return x.reshape(-1)
 
     def initialize_weights(self):
         for m in self.modules():
