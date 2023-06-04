@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 Day-2/output/*.png
+Day-2/geometry-score
 
 # C extensions
 *.so
