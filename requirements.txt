@@ -97,6 +97,7 @@ six==1.16.0
 sklearn==0.0.post5
 seaborn
 gudhi
+tensorboardX
 sniffio==1.3.0
 soupsieve==2.4.1
 stack-data==0.6.2
