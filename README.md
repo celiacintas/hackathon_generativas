@@ -37,6 +37,9 @@ Cuando pensamos en llevar a producción modelos de aprendizaje profundo, necesit
 
 
 ### Setup
+
+#### Opción 1
+
 `$ python -m venv genvenv`
 
 `$ source genvenv/bin/activate`
@@ -46,3 +49,15 @@ Cuando pensamos en llevar a producción modelos de aprendizaje profundo, necesit
 `$ ipython kernel install --user --name=genvenv`
 
 `$ python -m notebook`
+
+#### Opción 2
+
+`$ conda create --name curso python==3.9`
+
+`$ conda activate curso`
+
+`$ pip install -r requirements.txt`
+
+`$ jupyter lab --port 8890`
+
+
