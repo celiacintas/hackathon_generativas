@@ -5,7 +5,6 @@ __pycache__/
 
 Day-2/output/*.png
 Day-2/geometry-score
-Day-2/weights/*.pt
 
 # C extensions
 *.so
