@@ -23,7 +23,7 @@ Cuando pensamos en llevar a producción modelos de aprendizaje profundo, necesit
   - Discusiones en ambos ejemplos de aprendizaje profundo y generativos en particular.
   - Detección de valores atípicos.
 
-
+[Presentaciones introductorias](https://docs.google.com/presentation/d/1fYhr96zX89ZWw5winysMLCFd5WO9v_gFesPjQY_42H4/edit?usp=share_link)
 
 ### Referencias
 
